@@ -1,4 +1,4 @@
-# FirstStepsInReact-App
+# PWA_FirstStepsInReact
 
 This repository contains the development of the **Mandatory Practical Assignment: React** for the subject **Programación Web Avanzada (PWA)**.
 
