@@ -1,11 +1,12 @@
-import './home.module.css'
+import Title from "../../components/Title/Title";
+import './home.module.css';
+
+const Home = () => {
 
 
-
-export default function Home() {
   return (
-    <>
-    <h1 className='titulo'> hola </h1>
-    </>
-  );
+    <Title textTitle="Next" textSpan="Play"/>
+  )
 }
+
+export default Home;
