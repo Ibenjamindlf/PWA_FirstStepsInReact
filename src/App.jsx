@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Home  from "../pages/Home/home";
+import Home  from "./Home/home";
 
 function App() {
   return (
