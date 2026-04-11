@@ -1,0 +1,13 @@
+
+.homeSection {
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: #f8fafc; 
+  
+  padding-top: 5rem; 
+  box-sizing: border-box;
+}

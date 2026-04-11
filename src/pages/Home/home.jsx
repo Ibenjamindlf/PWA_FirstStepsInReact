@@ -1,11 +1,13 @@
 import Title from "../../components/Title/Title";
-import './home.module.css';
+import styles from './home.module.css';
 
 const Home = () => {
 
 
   return (
-    <Title textTitle="Next" textSpan="Play"/>
+    <section id="inicio" className={styles.homeSection}>
+      <Title textTitle="Next" textSpan="Play"/>
+    </section>
   )
 }
 
