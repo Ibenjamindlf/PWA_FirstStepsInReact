@@ -1,31 +1,19 @@
-/* ===== NAVBAR PRINCIPAL ===== */
-
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  box-sizing: border-box;
 
-  background: linear-gradient(
-    90deg,
-    var(--dark),
-    #0f0f0f
-  );
-
+  background: linear-gradient(90deg, var(--dark), #0f0f0f);
   color: var(--white);
-
-  padding: 1rem 2rem;
-
+  padding: 0.8rem 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-
   z-index: 1000;
-
-  backdrop-filter: blur(6px);
-
   border-bottom: 1px solid rgba(124, 58, 237, 0.2);
 }
 
-/* ===== CONTENEDOR ===== */
+/* CONTENEDOR */
 
 .container {
   max-width: 1400px;
@@ -37,9 +25,11 @@
   justify-content: space-between;
 
   align-items: center;
+
+  width: 100%;
 }
 
-/* ===== LOGO ===== */
+/* LOGO */
 
 .logo a {
   text-decoration: none;
@@ -55,20 +45,19 @@
   transform: scale(1.05);
 }
 
-/* Si Title renderiza un h1 */
 .logo h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 
   margin: 0;
 
   font-weight: 800;
 
-  letter-spacing: 1px;
-
   color: var(--white);
+
+  white-space: nowrap;
 }
 
-/* ===== LINKS ===== */
+/* LINKS */
 
 .navLinks {
   display: flex;
@@ -95,12 +84,12 @@
 
   font-size: 1rem;
 
-  letter-spacing: 0.5px;
-
   transition: color 0.3s ease;
+
+  white-space: nowrap;
 }
 
-/* ===== EFECTO HOVER MODERNO ===== */
+/* HOVER */
 
 .link::after {
   content: "";
@@ -130,20 +119,16 @@
 
 /* ===== RESPONSIVE ===== */
 
-/* Tablet */
+/* Notebook / Tablet */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
-  .navbar {
-    padding: 1rem;
+  .navLinks {
+    gap: 1.5rem;
   }
 
   .logo h1 {
     font-size: 1.6rem;
-  }
-
-  .navLinks {
-    gap: 1.2rem;
   }
 
 }
@@ -152,20 +137,16 @@
 
 @media (max-width: 480px) {
 
-  .container {
-    flex-direction: column;
-
-    gap: 0.5rem;
-  }
-
-  .navLinks {
-    flex-direction: row;
-
-    gap: 1rem;
+  .navbar {
+    padding: 0.7rem 1rem;
   }
 
   .logo h1 {
     font-size: 1.4rem;
+  }
+
+  .navLinks {
+    gap: 1rem;
   }
 
 }
