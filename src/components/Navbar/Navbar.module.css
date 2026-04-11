@@ -1,48 +1,171 @@
+/* ===== NAVBAR PRINCIPAL ===== */
 
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: black;
-  color: #ffffff;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  z-index: 50;
-  box-sizing: border-box;
+
+  background: linear-gradient(
+    90deg,
+    var(--dark),
+    #0f0f0f
+  );
+
+  color: var(--white);
+
+  padding: 1rem 2rem;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  z-index: 1000;
+
+  backdrop-filter: blur(6px);
+
+  border-bottom: 1px solid rgba(124, 58, 237, 0.2);
 }
 
+/* ===== CONTENEDOR ===== */
+
 .container {
-  max-width: 1600px;
+  max-width: 1400px;
+
   margin: 0 auto;
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 }
 
-.logo h1 {
-  font-size: 3rem;
-  margin: 0;
-  color: #ffffff;
-}
+/* ===== LOGO ===== */
 
 .logo a {
   text-decoration: none;
+
+  display: flex;
+
+  align-items: center;
+
+  transition: transform 0.2s ease;
 }
+
+.logo a:hover {
+  transform: scale(1.05);
+}
+
+/* Si Title renderiza un h1 */
+.logo h1 {
+  font-size: 2rem;
+
+  margin: 0;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: var(--white);
+}
+
+/* ===== LINKS ===== */
 
 .navLinks {
   display: flex;
-  gap: 1.5rem; 
+
+  gap: 2rem;
+
   list-style: none;
+
+  align-items: center;
+
+  margin: 0;
+
+  padding: 0;
 }
 
 .link {
-  color: #ffffff;
+  position: relative;
+
+  color: var(--white);
+
   text-decoration: none;
-  font-weight: 700;
+
+  font-weight: 600;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.5px;
+
   transition: color 0.3s ease;
 }
 
+/* ===== EFECTO HOVER MODERNO ===== */
+
+.link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 0%;
+
+  height: 2px;
+
+  background-color: var(--primary);
+
+  transition: width 0.3s ease;
+}
+
 .link:hover {
-  color: darkviolet;
+  color: var(--primary-light);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 1rem;
+  }
+
+  .logo h1 {
+    font-size: 1.6rem;
+  }
+
+  .navLinks {
+    gap: 1.2rem;
+  }
+
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+
+  .container {
+    flex-direction: column;
+
+    gap: 0.5rem;
+  }
+
+  .navLinks {
+    flex-direction: row;
+
+    gap: 1rem;
+  }
+
+  .logo h1 {
+    font-size: 1.4rem;
+  }
+
 }
