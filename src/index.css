@@ -6,3 +6,10 @@
   --white: #ffffff;
   --gray: #e5e7eb;
 }
+
+html {
+    scroll-behavior: smooth;
+
+    /* Esto se debe cambiar dependiendo del nav donde este ubicado*/
+    scroll-padding-top: 5rem; 
+}
