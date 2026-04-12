@@ -1,0 +1,170 @@
+/* --- TUS ESTILOS BASE --- */
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+/* --- ENVOLTORIO PARA MINIATURA Y TÍTULO --- */
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+/* --- ESTILO DE LA MINIATURA --- */
+.thumbnail {
+  width: 45px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+/* --- TU TÍTULO Y BOTÓN --- */
+.titleInput {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1.1rem;
+  width: 100%;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.titleInput:focus:not(:disabled) {
+  outline: none;
+  border-bottom: 2px solid var(--primary);
+  text-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+}
+
+/* Tachado específico para el título al pasar a vistas */
+.titleWatched {
+  text-decoration: line-through;
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 2px;
+  opacity: 0.7;
+}
+
+.infoBtn {
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--primary-light);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  padding: 5px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.infoBtn:hover {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+/* --- TUS DETALLES --- */
+.details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(167, 139, 250, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* --- PÓSTER GIGANTE --- */
+.posterContainer {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.largePoster {
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* --- FORMULARIO, TEXTAREA Y BOTONES --- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label {
+  color: var(--primary-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+/* ACÁ AGREGAMOS TEXTAREA Y LA FUENTE HEREDADA */
+.field input, .field select, .field textarea {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(167, 139, 250, 0.1);
+  color: var(--white);
+  padding: 8px;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+/* ACÁ AGREGAMOS TEXTAREA AL DISABLED */
+.field input:disabled, .field select:disabled, .field textarea:disabled {
+  background: transparent;
+  border-color: transparent;
+  color: var(--gray);
+  cursor: default;
+}
+
+/* ESTILOS ESPECÍFICOS PARA LA RESEÑA */
+.reviewArea {
+  resize: vertical;
+  line-height: 1.5;
+  min-height: 80px;
+}
+
+.reviewArea:disabled {
+  resize: none; 
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.editBtn, .saveBtn, .deleteBtn {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editBtn { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
+.saveBtn { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
+.deleteBtn { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+
+.editBtn:hover { background: #3b82f6; color: white; }
+.saveBtn:hover { background: #10b981; color: white; }
+.deleteBtn:hover { background: #ef4444; color: white; }
