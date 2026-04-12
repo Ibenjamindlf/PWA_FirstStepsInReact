@@ -1,77 +1,159 @@
 /* --- CONTENEDOR PRINCIPAL --- */
 .sectionContainer {
   min-height: 100vh;
-  background-color: darkviolet; 
+  /* Fondo negro base */
+  background-color: var(--dark);
+  /* Resplandor central violeta mucho más apagado y difuso */
+  background-image: radial-gradient(circle at 50% 30%, rgba(124, 58, 237, 0.274) 0%, rgba(124, 58, 237, 0) 60%); 
   padding: 5rem 2rem;
+  color: var(--white);
+  overflow: hidden;
 }
 
 .sectionTitle {
-  color: white;
   text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
+  margin-bottom: 4rem;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* Color violeta `--primary` puro */
+  color: var(--primary);
+  /* resplandor de texto */
+  filter: drop-shadow(0 0 5px rgba(124, 58, 237, 0.1));
 }
 
-/* --- LA MAGIA DE LAS DOS COLUMNAS (Lado a Lado) --- */
+/* --- CONTENEDOR DE COLUMNAS --- */
 .columnsContainer {
   display: flex;
-  flex-direction: row; /* Obliga a que estén en horizontal */
-  gap: 3rem;
+  flex-direction: row;
+  gap: 2.5rem;
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* --- COLUMNAS --- */
 .column {
-  flex: 1; /* Ocupan exactamente 50% y 50% */
-  background-color: rgba(0, 0, 0, 0.2); 
-  padding: 2rem;
-  border-radius: 12px;
+  flex: 1;
+  /* Fondo oscurecido para contraste */
+  background: rgba(32, 32, 32, 0.685); 
+  /* Desenfoque de fondo aumentado */
+  backdrop-filter: blur(16px); 
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(167, 139, 250, 0.1); /* Borde sutil `--primary-light` */
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+}
+
+/* Hover de columna dimmer */
+.column:hover {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.08); /* Brillo sutil */
+  border: 1px solid rgba(124, 58, 237, 0.3);
 }
 
 .columnTitle {
-  color: white;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  color: var(--primary);
+  font-size: 1.8rem;
   text-align: center;
-  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
 }
 
-/* --- ESTILOS DE LOS ITEMS (Arrastrables) --- */
+/* Línea decorativa estilo neón debajo del título de la columna */
+.columnTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.6);
+}
+
+/* --- LISTA Y ELEMENTOS ARRASTRABLES --- */
 .simpleList {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  min-height: 200px; /* Para que la columna no colapse si está vacía */
+  gap: 1.2rem;
+  min-height: 250px; 
 }
 
 .simpleItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1e293b;
-  padding: 1rem;
-  border-radius: 8px;
-  color: white;
-  font-size: 1.2rem;
-  cursor: grab; /* Muestra una manito */
-  transition: transform 0.2s, box-shadow 0.2s;
+  /* Tarjetas oscuro para los items */
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  color: var(--gray);
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: grab;
+  position: relative;
+  border: 1px solid rgba(167, 139, 250, 0.1);
+  border-left: 4px solid var(--primary);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hover */
+.simpleItem:hover {
+  transform: translateX(8px) translateY(-2px);
+  background: rgba(124, 58, 237, 0.1); /* Fondo violeta */
+  color: var(--white);
+  box-shadow: 0 5px 15px rgba(124, 58, 237, 0.2);
+  border-left: 4px solid var(--primary-light);
 }
 
 .simpleItem:active {
   cursor: grabbing;
-  transform: scale(1.02); 
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  transform: scale(0.97); 
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+  border-color: var(--white);
 }
 
+/* --- ITEMS VISTOS --- */
 .watchedItem {
-  opacity: 0.6;
+  opacity: 0.45;
+  border-left-color: #475569; 
   text-decoration: line-through;
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 2px;
 }
 
-.dragIcon {
-  color: #64748b;
-  font-size: 1.2rem;
-  user-select: none; 
+.watchedItem:hover {
+  border-left-color: var(--primary);
+  opacity: 0.8;
+}
+
+/* Diseño responsive */
+@media (max-width: 860px) {
+  .columnsContainer {
+    flex-direction: column; 
+    gap: 2rem;
+  }
+  
+  .sectionContainer {
+    padding: 3rem 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .column {
+    padding: 1.5rem;
+  }
 }
