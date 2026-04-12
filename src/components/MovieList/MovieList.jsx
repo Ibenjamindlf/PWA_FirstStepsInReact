@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MovieItem from '../MovieItem/MovieItem';
 import styles from './MovieList.module.css';
 
 const MovieList = ({ movies: initialMovies }) => {
@@ -8,6 +9,10 @@ const MovieList = ({ movies: initialMovies }) => {
   );
 
   const [idArrastrado, setIdArrastrado] = useState(null);
+
+  const eliminarPelicula = id => {
+    setPeliculas(peliculas.filter(p => p.id !== id));
+  }
 
   return (
     <section id="listado" className={styles.sectionContainer}>
@@ -32,7 +37,7 @@ const MovieList = ({ movies: initialMovies }) => {
                 draggable
                 onDragStart={() => setIdArrastrado(p.id)}
               >
-                {p.title}
+                <MovieItem movie={p} alEliminar={eliminarPelicula} />
               </div>
             ))}
           </div>
@@ -55,7 +60,7 @@ const MovieList = ({ movies: initialMovies }) => {
                 draggable
                 onDragStart={() => setIdArrastrado(p.id)}
               >
-                {p.title}
+                <MovieItem movie={p} alEliminar={eliminarPelicula} />
               </div>
             ))}
           </div>
