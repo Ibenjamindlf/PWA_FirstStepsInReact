@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar/Navbar'; 
 import MovieList from './components/MovieList/MovieList';
 import Home from './pages/Home/home';
+import imgInterestellar from './assets/interestellar.jpg';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
     id: 2, 
     title: 'Interstellar', 
     year: 2014, 
+    image: imgInterestellar,
     genre: 'Aventura / Drama',
     director: 'Christopher Nolan',
     actors: 'Matthew McConaughey, Anne Hathaway, Jessica Chastain',
