@@ -50,12 +50,13 @@
 }
 
 /* Tachado específico para el título al pasar a vistas */
-.titleWatched {
+/* Se mantiene este apartado por si en el futuro se llega a necesitar */
+/* .titleWatched {
   text-decoration: line-through;
   text-decoration-color: var(--primary);
   text-decoration-thickness: 2px;
   opacity: 0.7;
-}
+} */
 
 .infoBtn {
   background: rgba(124, 58, 237, 0.1);
@@ -66,13 +67,13 @@
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
-}
+} 
 
 .infoBtn:hover {
   background: var(--primary);
   color: white;
   box-shadow: 0 0 10px var(--primary);
-}
+} 
 
 /* --- TUS DETALLES --- */
 .details {
