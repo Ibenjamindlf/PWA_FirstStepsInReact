@@ -123,8 +123,9 @@
   border-color: var(--white);
 }
 
-/* --- ITEMS VISTOS --- */
-.watchedItem {
+/* --- ITEMS VISTOS (Tachado de los items vistos) --- */
+/* Se mantiene este apartado por si en el futuro se llega a necesitar */
+/* .watchedItem {
   opacity: 0.45;
   border-left-color: #475569; 
   text-decoration: line-through;
@@ -135,7 +136,7 @@
 .watchedItem:hover {
   border-left-color: var(--primary);
   opacity: 0.8;
-}
+} */
 
 /* Diseño responsive */
 @media (max-width: 860px) {
