@@ -152,20 +152,27 @@
   margin-top: 10px;
 }
 
-.editBtn, .saveBtn, .deleteBtn {
-  flex: 1;
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
+/* Agrupa el botón +Info y el tachito de basura */
+.buttonsWrapper {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 }
 
-.editBtn { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
-.saveBtn { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
-.deleteBtn { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+/* Estilo para el botón de la papelera */
+.deleteIconBtn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--gray);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
 
-.editBtn:hover { background: #3b82f6; color: white; }
-.saveBtn:hover { background: #10b981; color: white; }
-.deleteBtn:hover { background: #ef4444; color: white; }
+.deleteIconBtn:hover {
+    background-color: rgba(225, 29, 72, 0.2); /* Fondito rojo sutil */
+    border-color: #e11d48;
+    transform: scale(1.05);
+}

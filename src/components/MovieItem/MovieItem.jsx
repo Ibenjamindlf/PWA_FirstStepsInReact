@@ -1,119 +1,77 @@
 import React, { useState } from 'react';
 import styles from './MovieItem.module.css';
+import { MovieItemModal } from '../MovieItemModal/MovieItemModal';
+import { ConfirmModal } from '../ConfirmModal/ConfirmModal';
 
-
-const MovieItem = ({movie, alEliminar}) => {
+// NUEVO: Agregamos "alEditar" a las props que recibe el componente
+const MovieItem = ({movie, alEliminar, alEditar}) => {
     
-    const [expandido, setExpandido] = useState(false);
-    const [editando, setEditando] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+
+    const handleConfirmDelete = () => {
+        alEliminar(movie.id);
+        setIsConfirmOpen(false); 
+    };
 
     return (
-        <div className={styles.card}>
+        <>
+            {/* Tarjeta principal */}
+            <div className={styles.card}>
+                <div className={styles.header}>
+                    <div className={styles.titleWrapper}>
+                        <img 
+                            src={movie.image || "https://via.placeholder.com/50x75/1e293b/a78bfa?text=IMG"} 
+                            alt="Miniatura" 
+                            className={styles.thumbnail} 
+                        />
+                        
+                        <input 
+                            type="text"
+                            defaultValue={movie.title}
+                            className={`${styles.titleInput} ${movie.vista ? styles.titleWatched : ''}`}
+                            disabled={true} 
+                        />
+                    </div>
 
-            <div className={styles.header}>
-
-                <div className={styles.titleWrapper}>
-                    <img 
-                        src={movie.image || "https://via.placeholder.com/50x75/1e293b/a78bfa?text=IMG"} 
-                        alt="Miniatura" 
-                        className={styles.thumbnail} 
-                    />
-                    
-                    <input 
-                        type="text"
-                        defaultValue={movie.title}
-                        className={`${styles.titleInput} ${movie.vista ? styles.titleWatched : ''}`}
-                        disabled={!editando}  
-                    />
+                    <div className={styles.buttonsWrapper}>
+                        <button
+                            className={styles.infoBtn}
+                            onClick={() => setIsModalOpen(true)}
+                        >
+                            +Info
+                        </button> 
+                        
+                        <button
+                            className={styles.deleteIconBtn}
+                            onClick={() => setIsConfirmOpen(true)}
+                            title="Eliminar de la lista"
+                        >
+                            🗑️
+                        </button>
+                    </div>           
                 </div>
-
-                <button
-                    className={styles.infoBtn}
-                    onClick={() => setExpandido(!expandido)}
-                >
-                    {expandido ? 'Cerrar' : '+Info'}
-
-                </button>            
-
             </div>
 
-            {expandido && (
-                <div className={styles.details}>
-
-                    <div className={styles.posterContainer}>
-                        <img 
-                            src={movie.image || "https://via.placeholder.com/400x600/1e293b/a78bfa?text=Póster+No+Disponible"} 
-                            alt={`Póster de ${movie.title}`} 
-                            className={styles.largePoster} 
-                        />
-                    </div>
-
-                    <div className={styles.field}>
-
-                        <label>Genero</label>
-                        <select defaultValue={movie.genre} disabled={!editando}>
-                            <option value="Acción">Acción</option>
-                            <option value="Comedia">Comedia</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Ciencia Ficción">Ciencia Ficción</option>
-                        </select>
-
-                    </div>
-
-                    <div className={styles.field}>
-                        <label>Director:</label>
-                        <input type="text" defaultValue={movie.director} disabled={!editando} />
-                    </div>
-
-                    <div className={styles.field}>
-                        <label>Año:</label>
-                        <input type="number" defaultValue={movie.year} disabled={!editando} />
-                    </div>
-
-                    <div className={styles.field}>
-                        <label>Tipo:</label>
-                        <select defaultValue={movie.type} disabled={!editando}>
-                        <option value="pelicula">Película</option>
-                        <option value="serie">Serie</option>
-                        </select>
-                    </div>
-
-                    <div className={styles.field}>
-                        <label>Rating (0-10):</label>
-                        <input type="number" min="0" max="10" defaultValue={movie.rating} disabled={!editando} />
-                    </div>
-
-                    <div className={styles.field}>
-                        <label>Reseña:</label>
-                        <textarea 
-                            defaultValue={movie.review} 
-                            disabled={!editando} 
-                            rows="4" 
-                            className={styles.reviewArea}
-                        />
-                    </div>
-
-                    <div className={styles.actions}>
-                        <button
-                            className={editando ? styles.saveBtn : styles.editBtn}
-                            onClick={() => setEditando(!editando)}
-                        >
-                            {editando ? 'Guardar' : 'Editar'}
-                        </button>
-
-                        <button
-                            className={styles.deleteBtn}
-                            onClick={() => alEliminar(movie.id)}
-                        >Eliminar
-                        </button>
-
-                    </div>
-
-                </div>
+            {/* Modal de Información y Edición */}
+            {isModalOpen && (
+                <MovieItemModal 
+                    movie={movie} 
+                    onClose={() => setIsModalOpen(false)} 
+                    onSave={alEditar} // CONEXIÓN: Le pasamos la función de guardado
+                    onDelete={alEliminar} // CONEXIÓN: Le pasamos la función de eliminado
+                />
             )}
 
-
-        </div>
+            {/* Modal de Confirmación para el botón de la tarjeta */}
+            {isConfirmOpen && (
+                <ConfirmModal 
+                    itemName={movie.title} 
+                    onConfirm={handleConfirmDelete} 
+                    onCancel={() => setIsConfirmOpen(false)} 
+                />
+            )}
+        </>
     )
 }
 

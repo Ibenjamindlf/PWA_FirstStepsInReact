@@ -1,0 +1,253 @@
+/* --- OVERLAY DEL MODAL --- */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* --- CONTENEDOR PRINCIPAL (Glassmorphism Oscuro) --- */
+.modalContent {
+    background-color: rgba(30, 41, 59, 0.85); /* Fondo oscuro translúcido */
+    border: 1px solid rgba(124, 58, 237, 0.3); /* Borde sutil violeta */
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 900px;
+    width: 90%;
+    position: relative;
+    color: var(--white);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* --- BOTÓN CRUZ (Arriba derecha) --- */
+.closeIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--gray);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.closeIcon:hover {
+    color: var(--primary);
+}
+
+/* --- LAYOUT DEL CUERPO (Grid/Flex) --- */
+.modalBody {
+    display: flex;
+    gap: 3rem;
+    align-items: stretch;
+}
+
+/* --- COLUMNA IZQUIERDA (Texto) --- */
+.textColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 2.2rem;
+    color: var(--primary); /* Título en violeta puro */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.year {
+    color: var(--gray);
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.badges {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.rating {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.genre {
+    color: var(--primary-light);
+    border: 1px solid var(--primary-light);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    color: var(--gray);
+}
+
+.infoGrid strong {
+    color: var(--white);
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+}
+
+.review h3 {
+    color: var(--primary);
+    border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.review p {
+    line-height: 1.6;
+    color: var(--gray);
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.actionButtons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.editBtn, .closeBtn {
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.editBtn {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.editBtn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+.closeBtn {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--gray);
+}
+
+.closeBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--white);
+}
+
+/* --- COLUMNA DERECHA (Imagen) --- */
+.imageColumn {
+    width: 300px;
+    flex-shrink: 0; /* Evita que la imagen se achique de más */
+}
+
+.poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* --- ESTILOS MODO EDICIÓN --- */
+.editForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.editInput, .editTextarea {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    color: var(--white);
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.editInput:focus, .editTextarea:focus {
+    border-color: var(--primary);
+}
+
+/* --- BOTÓN GUARDAR Y ELIMINAR --- */
+.saveBtn {
+    background-color: #10b981; /* Verde esmeralda para guardar */
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s ease;
+}
+
+.saveBtn:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+}
+
+.deleteBtn {
+    background-color: transparent;
+    color: #e11d48;
+    border: 1px solid #e11d48;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.deleteBtn:hover {
+    background-color: rgba(225, 29, 72, 0.1);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 860px) {
+    .modalBody {
+        flex-direction: column-reverse; /* En celulares, la imagen va arriba */
+        gap: 1.5rem;
+    }
+
+    .imageColumn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .infoGrid {
+        grid-template-columns: 1fr; /* Una sola columna para los datos */
+    }
+
+    .actionButtons {
+        flex-direction: column;
+    }
+}

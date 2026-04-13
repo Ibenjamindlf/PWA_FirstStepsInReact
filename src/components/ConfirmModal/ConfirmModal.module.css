@@ -1,0 +1,97 @@
+/* --- OVERLAY --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Z-index bien alto para que pise incluso al otro modal */
+}
+
+/* --- CAJA DEL MODAL --- */
+.modalContent {
+    background-color: rgba(30, 41, 59, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #e11d48; /* Una línea roja arriba para indicar peligro */
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* --- ANIMACIÓN DE ENTRADA --- */
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- TEXTOS --- */
+.warningIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(225, 29, 72, 0.5));
+}
+
+.title {
+    color: var(--white);
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.description {
+    color: var(--gray);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+/* --- BOTONES --- */
+.actionButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.cancelBtn, .confirmBtn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1; /* Para que ocupen el mismo ancho */
+}
+
+.cancelBtn {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--gray);
+}
+
+.cancelBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--white);
+}
+
+.confirmBtn {
+    background-color: #e11d48; /* Rojo para eliminar */
+    color: var(--white);
+    border: none;
+    box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+}
+
+.confirmBtn:hover {
+    background-color: #be123c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(225, 29, 72, 0.5);
+}

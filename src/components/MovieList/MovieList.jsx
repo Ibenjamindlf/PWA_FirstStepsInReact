@@ -14,6 +14,13 @@ const MovieList = ({ movies: initialMovies }) => {
     setPeliculas(peliculas.filter(p => p.id !== id));
   }
 
+  // NUEVO: Creamos la función para actualizar una película en el estado
+  const editarPelicula = (peliculaEditada) => {
+    setPeliculas(peliculas.map(p => 
+      p.id === peliculaEditada.id ? peliculaEditada : p
+    ));
+  };
+
   return (
     <section id="listado" className={styles.sectionContainer}>
       <h2 className={styles.sectionTitle}>Mi Listado</h2>
@@ -37,7 +44,12 @@ const MovieList = ({ movies: initialMovies }) => {
                 draggable
                 onDragStart={() => setIdArrastrado(p.id)}
               >
-                <MovieItem movie={p} alEliminar={eliminarPelicula} />
+                {/* NUEVO: Le pasamos la prop alEditar al componente */}
+                <MovieItem 
+                  movie={p} 
+                  alEliminar={eliminarPelicula} 
+                  alEditar={editarPelicula} 
+                />
               </div>
             ))}
           </div>
@@ -60,7 +72,12 @@ const MovieList = ({ movies: initialMovies }) => {
                 draggable
                 onDragStart={() => setIdArrastrado(p.id)}
               >
-                <MovieItem movie={p} alEliminar={eliminarPelicula} />
+                {/* NUEVO: Le pasamos la prop alEditar al componente */}
+                <MovieItem 
+                  movie={p} 
+                  alEliminar={eliminarPelicula} 
+                  alEditar={editarPelicula} 
+                />
               </div>
             ))}
           </div>
