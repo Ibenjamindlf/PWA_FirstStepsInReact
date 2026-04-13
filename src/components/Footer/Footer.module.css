@@ -1,0 +1,42 @@
+.footer {
+  /* Esto es clave: empuja el footer siempre al fondo de la pantalla */
+  margin-top: auto; 
+  background-color: rgba(2, 6, 23, 0.7); /* Un fondo súper oscuro y translúcido */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px dashed rgba(167, 139, 250, 0.15); /* Misma línea punteada sutil */
+  padding: 2rem 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.copy {
+  color: var(--gray, #94a3b8);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-align: center;
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-light, #a78bfa);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(124, 58, 237, 0.05);
+  border: 1px solid transparent;
+}

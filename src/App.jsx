@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import MovieList from './components/MovieList/MovieList';
 import Home from './pages/Home/home';
 import imgInterestellar from './assets/interestellar.jpg';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
 
@@ -52,6 +53,8 @@ const App = () => {
       <MovieList movies={peliculasDePrueba} />
 
       </main>
+
+      <Footer />
     </div>
   );
 };
