@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MovieItem from '../MovieItem/MovieItem';
 import styles from './MovieList.module.css';
 
 const MovieList = ({ movies: initialMovies }) => {
     
-  const [peliculas, setPeliculas] = useState(
-    initialMovies.map(p => ({ ...p, vista: false }))
-  );
+  const [peliculas, setPeliculas] = useState( () => {
+      const pelisGuardadas = localStorage.getItem('misPeliculas');
+
+      if (pelisGuardadas) {
+        return JSON.parse(pelisGuardadas);
+      }
+
+      return initialMovies.map( p => ({ ...p, vista: false }));
+    });
 
   const [idArrastrado, setIdArrastrado] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem('misPeliculas', JSON.stringify(peliculas));
+  }, [peliculas]);
+
 
   const eliminarPelicula = id => {
     setPeliculas(peliculas.filter(p => p.id !== id));
