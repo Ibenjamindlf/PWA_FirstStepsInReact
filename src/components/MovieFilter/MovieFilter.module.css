@@ -1,0 +1,149 @@
+.filterContainer {
+  background-color: #0b0c10; /* Fondo casi negro estilo dashboard */
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* --- FILA SUPERIOR: CONTROLES --- */
+.topRow {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Línea divisoria muy sutil */
+  flex-wrap: wrap;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1; /* Hace que todos los campos tomen el mismo ancho disponible */
+  min-width: 180px;
+}
+
+.inputGroup label {
+  color: #a78bfa; /* Violeta clarito */
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inputElement {
+  background-color: #1a1b26; /* Azul súper oscuro para los inputs */
+  border: 1px solid transparent;
+  color: #e2e8f0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  outline: none;
+}
+
+.inputElement:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+}
+
+/* El select violeta de Ordenar Por */
+.highlightSelect {
+  background-color: #7c3aed;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.highlightSelect:hover {
+  background-color: #6d28d9;
+}
+
+.highlightSelect option {
+  background-color: #1a1b26; /* Fondo oscuro para las opciones desplegadas */
+  color: white;
+}
+
+/* --- FILA INFERIOR: ESTADÍSTICAS Y BOTÓN --- */
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.2rem;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.statsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.statText {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.statLabel {
+  color: #a78bfa;
+}
+
+.separator {
+  color: #334155;
+  font-weight: 300;
+  margin: 0 5px;
+}
+
+.genreBadges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Botón Blanco de Agregar */
+.addBtn {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.addBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 800px) {
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .addBtn {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
