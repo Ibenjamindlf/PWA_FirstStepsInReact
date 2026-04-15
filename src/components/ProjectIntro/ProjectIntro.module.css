@@ -1,0 +1,85 @@
+.projectIntro {
+    min-height: 100dvh;
+    background-color: var(--dark);
+    background-image: radial-gradient(
+        circle at 50% 20%,
+        rgba(124, 58, 237, 0.25) 0%,
+        rgba(124, 58, 237, 0) 60%
+    );
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.projectIntro__description {
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 4rem;
+    animation: fadeUp 1s ease forwards;
+}
+
+.projectIntro__description h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.projectIntro__description h2 span {
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(124, 58, 237, 0.6);
+}
+
+.projectIntro__description p {
+    color: var(--gray);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.projectIntro__developers {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 1.4s ease forwards;
+}
+
+.developers__card {
+    width: 220px;
+    background: rgba(32, 32, 32, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.card__img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.card__name {
+    margin-bottom: 0.3rem;
+}
+
+.card__role {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
