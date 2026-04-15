@@ -44,6 +44,7 @@ export const MovieItemModal = ({ movie, onClose, onSave, onDelete }) => {
                     <div className={styles.textColumn}>
                         
                         {/* RENDERIZADO CONDICIONAL: Modo Edición vs Modo Vista */}
+                        {/* RENDERIZADO CONDICIONAL: Modo Edición vs Modo Vista */}
                         {isEditing ? (
                             <div className={styles.editForm}>
                                 <input name="title" value={formData.title} onChange={handleChange} className={styles.editInput} placeholder="Título" />
@@ -53,6 +54,10 @@ export const MovieItemModal = ({ movie, onClose, onSave, onDelete }) => {
                                 <input name="director" value={formData.director} onChange={handleChange} className={styles.editInput} placeholder="Director" />
                                 <input name="production" value={formData.production} onChange={handleChange} className={styles.editInput} placeholder="Producción" />
                                 <input name="actors" value={formData.actors} onChange={handleChange} className={styles.editInput} placeholder="Elenco" />
+                                
+                                {/* NUEVO: Campo para editar la URL de la imagen */}
+                                <input name="image" value={formData.image || ''} onChange={handleChange} className={styles.editInput} placeholder="URL de la imagen (Poster)" />
+                                
                                 <textarea name="review" value={formData.review} onChange={handleChange} className={styles.editTextarea} rows="4" placeholder="Sinopsis"></textarea>
                             </div>
                         ) : (

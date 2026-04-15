@@ -217,8 +217,8 @@
 
 .deleteBtn {
     background-color: transparent;
-    color: #e11d48;
-    border: 1px solid #e11d48;
+    color: #fb7185; 
+    border: 1px solid #fb7185;
     padding: 0.8rem 2rem;
     border-radius: 8px;
     font-weight: bold;
@@ -227,7 +227,11 @@
 }
 
 .deleteBtn:hover {
-    background-color: rgba(225, 29, 72, 0.1);
+    background-color: #ef4444; /* Fondo rojo fuerte  */
+    border-color: #ef4444;
+    color: #000000; /* Letras negras */
+    transform: translateY(-2px); /* Pequeño salto visual para dar dinamismo */
+    /* box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4); Resplandor rojo oscuro [cite: 474] */
 }
 
 /* --- RESPONSIVE --- */
