@@ -1,0 +1,154 @@
+/* --- OVERLAY DEL MODAL --- */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.modalContent {
+    background-color: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    color: var(--white, #ffffff);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.closeIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--gray, #e5e7eb);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.closeIcon:hover {
+    color: var(--primary, #7c3aed);
+}
+
+.title {
+    color: var(--primary, #7c3aed);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    color: var(--gray, #e5e7eb);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* --- FORMULARIO --- */
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.inputField {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    color: var(--white, #ffffff);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputField::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.inputField:focus {
+    border-color: var(--primary, #7c3aed);
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+    resize: vertical;
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.actionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cancelBtn, .saveBtn {
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancelBtn {
+    background-color: transparent;
+    color: var(--white, #ffffff);
+    border: 1px solid var(--gray, #e5e7eb);
+}
+
+.cancelBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--white, #ffffff);
+}
+
+.saveBtn {
+    background-color: var(--white, #ffffff);
+    color: var(--dark, #000000);
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.saveBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+    .modalContent {
+        padding: 1.5rem;
+    }
+    .inputGrid {
+        grid-template-columns: 1fr;
+    }
+    .fullWidth {
+        grid-column: auto;
+    }
+    .actionButtons {
+        flex-direction: column-reverse;
+    }
+    .cancelBtn, .saveBtn {
+        width: 100%;
+    }
+}
