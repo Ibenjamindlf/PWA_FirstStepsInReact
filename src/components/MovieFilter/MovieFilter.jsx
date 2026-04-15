@@ -1,6 +1,11 @@
+import React, { useState } from 'react';
 import styles from './MovieFilter.module.css';
+import { MovieAddModal } from '../MovieAddModal/MovieAddModal';
 
-const MovieFilter = ({ peliculas, filtros, setFiltros }) => {
+const MovieFilter = ({ peliculas, filtros, setFiltros, onAdd}) => {
+
+    // Estado para controlar si el modal de agregar está abierto o cerrado
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
     const vistas = peliculas.filter(p => p.vista).length;
     const pendientes = peliculas.length - vistas;
@@ -104,13 +109,21 @@ const MovieFilter = ({ peliculas, filtros, setFiltros }) => {
           </div>
         </div>
 
-        {/* Botón de agregar (Para Benja) */}
-        <button className={styles.addBtn} onClick={() => console.log("Benja, conectá tu modal acá!")}>
+        <button className={styles.addBtn} onClick={() => setIsAddModalOpen(true)}>
           + AGREGAR CONTENIDO
         </button>
 
       </div>
-
+            {/* Renderizado condicional del modal */}
+      {isAddModalOpen && (
+          <MovieAddModal 
+              onClose={() => setIsAddModalOpen(false)} 
+              onSave={(nuevaPeli) => {
+                  onAdd(nuevaPeli); // Guardamos la peli en la lista global
+                  setIsAddModalOpen(false); // Cerramos el modal
+              }} 
+          />
+      )}
     </div>
   )
 }
