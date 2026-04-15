@@ -103,7 +103,7 @@ export const MovieItemModal = ({ movie, onClose, onSave, onDelete }) => {
 
                     <div className={styles.imageColumn}>
                         <img 
-                            src={movie.image || "https://via.placeholder.com/300x450/1e293b/7c3aed?text=Poster+No+Disponible"} 
+                            src={movie.image || "https://www.shutterstock.com/image-vector/film-reel-vector-cinema-logo-600nw-2353280887.jpg"} 
                             alt={`Poster de ${movie.title}`} 
                             className={styles.poster}
                         />
