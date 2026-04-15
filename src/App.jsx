@@ -46,15 +46,12 @@ const App = () => {
 ];
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <main>
-        <Home />
-
-      <MovieList movies={peliculasDePrueba} />
-
+        <Home/>        
+        <MovieList movies={peliculasDePrueba}/>
       </main>
-
-      <Footer />
+      <Footer/>
     </div>
   );
 };
