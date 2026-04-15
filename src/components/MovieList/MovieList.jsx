@@ -42,6 +42,19 @@ const MovieList = ({ movies: initialMovies }) => {
     ));
   };
 
+  // NUEVO: Función para agregar una película nueva
+  const agregarPelicula = (nuevaPelicula) => {
+    // Le generamos un ID único (usando Date.now()) y la marcamos como "No vista"
+    const peliListaParaGuardar = { 
+        ...nuevaPelicula, 
+        id: Date.now(), 
+        vista: false 
+    };
+    
+    // Actualizamos el estado (el useEffect se encargará de guardarlo en localStorage)
+    setPeliculas([...peliculas, peliListaParaGuardar]);
+  };
+
   // Filtrado
   const peliculasFiltradas = peliculas.filter(p => {
     
@@ -74,6 +87,7 @@ const MovieList = ({ movies: initialMovies }) => {
         peliculas={peliculas} 
         filtros={filtros} 
         setFiltros={setFiltros} 
+        onAdd={agregarPelicula} // Pasamos la funcion para agregar
       />
       <div className={styles.columnsContainer}>
         
