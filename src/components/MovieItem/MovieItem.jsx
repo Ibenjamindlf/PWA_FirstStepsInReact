@@ -21,7 +21,7 @@ const MovieItem = ({movie, alEliminar, alEditar}) => {
                 <div className={styles.header}>
                     <div className={styles.titleWrapper}>
                         <img 
-                            src={movie.image || "https://via.placeholder.com/50x75/1e293b/a78bfa?text=IMG"} 
+                            src={movie.image || "https://www.shutterstock.com/image-vector/film-reel-vector-cinema-logo-600nw-2353280887.jpg"} 
                             alt="Miniatura" 
                             className={styles.thumbnail} 
                         />
