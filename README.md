@@ -1,6 +1,6 @@
 
 # PWA_FirstStepsInReact
-
+asd
 This repository contains the development of the **Mandatory Practical Assignment: React** for the subject **Programación Web Avanzada (PWA)**.
 
 The objective of this project is to build a web application using the React library that functions as a personal manager for movies and TV series.
